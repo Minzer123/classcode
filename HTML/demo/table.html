@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+    <table style="border:1px solid black;border-collapse:collapse;">
+        <!-- <thead>信息表</thead> -->
+        <tbody>
+            <tr style="border:1px solid black">
+                <th style="border:1px solid black;width:100px;height:100px;">姓名</th>
+                <th style="border:1px solid black;width:100px;height:100px;">性别</th>
+                <th style="border:1px solid black;width:100px;height:100px;">年龄</th>
+            </tr>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black;width:100px;height:100px;">Tom</td>
+                <td style="border:1px solid black;width:100px;height:100px;">boy</td>
+                <td style="border:1px solid black;width:100px;height:100px;">15</td>
+            </tr>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black;width:100px;height:100px;">Amy</td>
+                <td style="border:1px solid black;width:100px;height:100px;">girl</td>
+                <td style="border:1px solid black;width:100px;height:100px;">14</td>
+            </tr>
+        </tbody>
+        <!-- <tfoot>备注：bulabulabula~</tfoot> -->
+    </table>
+    <br>
+    <!-- border-collapse:collapse;边框折叠 -->
+    <table border="1" style="border-collapse:collapse;width:300px;height:300px;">
+        <tr>
+            <!-- colspan 跨列，使得单元格的宽度是两个单元格的宽度 -->
+            <td colspan="2">1</td>
+            <td>2</td>
+            <!-- <td>3</td> -->
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <!-- rowspan 跨行，使得单元格的高度度是两个单元格的高度 -->
+            <td rowspan="2">6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <!-- <td>9</td> -->
+        </tr>
+    </table>
+</body>
+</html>

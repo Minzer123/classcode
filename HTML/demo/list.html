@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表</title>
+</head>
+<body>
+    <!-- type属性设置li前的标识，disc实心小圆点，circle空心小圆圈，square实心小方块 -->
+    <ul type="disc">
+        <li>
+            <h4>北京</h4>
+            <ul>
+                <li>朝阳</li>
+                <li>海淀</li>
+                <li>昌平</li>
+                <li>东城</li>
+            </ul>
+        </li>
+        <li>
+            <h4>天津</h4>
+            <ul>
+                <li>和平</li>
+                <li>东丽</li>
+                <li>静海</li>
+            </ul>
+        </li>
+        <li>上海</li>
+        <li>广州</li>
+    </ul>
+
+    <hr>
+
+    <!-- type属性设置li前顺序标识，1是数字，a是小写字母，A是大写字母，i是小写罗马数字，I是大写罗马数字 -->
+    <ol type="I">
+        <li>论语</li>
+        <li>孟子</li>
+        <li>大学</li>
+        <li>中庸</li>
+    </ol>
+
+    <hr>
+
+
+    <dl>
+        <dt>HTML语言</dt>
+        <dd>HTML语言是基本的描述文字语义的语言，负责页面的结构</dd>
+    
+        <dt>CSS语言</dt>
+        <dd>CSS是负责描述页面样式的语言</dd>
+    
+        <dt>JavaScript语言</dt>
+        <dd>JavaScript是负责描述页面交互的语言</dd>
+    </dl>
+
+
+    <hr>
+    <!-- list-style:none; 消除li前的标识 -->
+    <!-- float:left;  让li在一行显示 -->
+    <!-- margin-left:20px;  让li之间有间距 -->
+    <!-- text-decoration:none;  去掉a标签的下划线 -->
+    <!-- font-weight:bold;  让文字加粗 -->
+    <!-- color:gray;  设置文字颜色 -->
+    <ul style="list-style:none;">
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;font-weight:bold;color:red">秒杀</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;font-weight:bold;color:red">优惠券</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">PLUS会员</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">品牌闪购</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">拍卖</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">京东时尚</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">京东超市</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">京东生鲜</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">海囤全球</a></li>
+        <li style="float:left;margin-left:20px;"><a href="#" style="text-decoration:none;color:gray;">京东金融</a></li>
+    </ul>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单</title>
+</head>
+<body>
+    <!-- action 指定提交表单收集的信息到哪里，一般是后台语言文件 如php java 等 ，此处我们提交到html文件，也就是提交到一个页面来模拟后台环境-->
+    <!-- method 指定提交表单是的方法，有两种GET 和 POST -->
+
+    <form action="list.html" method="POST">
+        <!-- input 通过type值来改变显示方式 -->
+        <!-- text 文本框 -->
+        <label>用户名：<input type="text" name="username"></label><br>
+        <!-- password 密码框 -->
+        <label>密码：<input type="password" name="pwd"></label><br>
+        <!-- radio 单选框 -->
+        <label><input type="radio" name="gender" value="male">男</label>
+        <label><input type="radio" name="gender" value="female">女</label><br>
+        <!-- checkbox 多选框 -->
+        <label><input type="checkbox" name="hobby" value="sport">运动</label>
+        <label><input type="checkbox" name="hobby" value="reading">读书</label>
+        <label><input type="checkbox" name="hobby" value="music">听音乐</label>
+        <label><input type="checkbox" name="hobby" value="travel">旅行</label><br>
+        <!-- select 下拉列表  option 选项 -->
+        <label>地区：<select name="home">
+            <option value="bj">北京</option>
+            <option value="tj">天津</option>
+            <option value="sh">上海</option>
+            <option value="cq">重庆</option>
+        </select></label><br>
+        <!-- textarea 文本域（多行文本） -->
+        <label>自我介绍：<textarea name="self" cols="30" rows="10" value="请填写自我介绍"></textarea></label><br>
+        <!-- button 按钮 -->
+        <input type="button" value="按钮">
+        <!-- submit 提交按钮 -->
+        <input type="submit" value="提交">
+        <!-- reset 重置按钮 -->
+        <input type="reset" value="重置"><br>
+        <!-- hidden 隐藏框 -->
+        <input type="hidden">
+    </form>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本选择器</title>
+    <style>
+        /* 通配符（全局）选择器 ：通常用来去掉默认样式 */
+        *{
+            color:aqua;
+        }
+        /* 标签选择器（元素选择器） */
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            color: blue;
+        }
+        /* id选择器 */
+        #firstp{
+            font-size: 30px;
+        }
+        /* class选择器（类选择器） */
+        .firstspan{
+            font-weight: bold;
+        }
+
+        #iddiv{
+            color: green;
+        }
+
+        .classdiv{
+            color: yellow;
+        }
+        .secclass{
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 四种基本选择器权重： (行内样式 > )id选择器 > class选择器 > 标签选择器 > 全局选择器-->
+    
+    <!-- 四个全局属性：title style id class -->
+
+    <!-- id名和类名的特点： -->
+    <!-- 1. 同一个标签可以添加多个类名，但是只能添加一个id名 -->
+    <!-- 2. 在同一个html文件里，同一个id名只能被一个标签拥有，但同一个类名可以被多个标签共有 -->
+    <div id="iddiv" class="classdiv secclass">基本选择器</div>
+    <p id="firstp" class="secclass">段落</p>
+    <span class="firstspan">hello</span>
+    
+</body>
+</html>

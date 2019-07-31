@@ -1,0 +1,31 @@
+/* 后代选择器（包含选择器） */
+.spe-div p{
+    color:aqua;
+}
+/* 子代选择器（直接子元素选择器） */
+.spe-div>p{
+    font-size: 30px;
+}
+.spe-div .son-p{
+    font-size: 20px;
+}
+.spe-div .grandson-p{
+    font-size: 40px;
+}
+
+/* 交集选择器：通过多个基本选择器获取同一个标签，会使得选择器权重升高 */
+.ord-div.hello p{
+    color: gold;
+}
+/* 并集选择器：多个标签都添加同一份样式，但是多个标签的选择器又不同 */
+.hello p,.spe-div>p{
+    font-size: 50px;
+}
+
+
+#test-span.test-span {
+    color: blue;
+}
+#test-span{
+    color: red;
+}

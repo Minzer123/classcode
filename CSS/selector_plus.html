@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高级选择器</title>
+    <link rel="stylesheet" href="selector_plus.css">
+</head>
+<body>
+    <!-- 后代选择器（包含选择器） -->
+    <!-- 子代选择器（直接子元素选择器） -->
+    <div class="ord-div hello">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+    </div>
+    <div class="spe-div">
+        <p>spe-p1
+            <p class="son-p">grand-p1</p>
+        </p>
+        <p>spe-p2</p>
+        <p>spe-p3
+            <p class="son-p">grand-p2</p>
+        </p>
+        <p>spe-p4
+            <p class="son-p">grand-p3
+                <p class="grandson-p">grandp-p1</p>
+            </p>
+        </p>
+    </div>
+    <div class="ord-div">
+        <p>p1</p>
+        <p>p2</p>
+        <p>p3</p>
+        <p>p4</p>
+    </div>
+
+
+    <!-- id选择器     1000 -->
+    <!-- class选择器    100 -->
+    <!-- 标签选择器    10 -->
+    <!-- 全局选择器    1 -->
+    <br><br><br>
+    <hr>
+    <span id="test-span" class="test-span">HelloWorld</span>
+</body>
+</html>

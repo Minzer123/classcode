@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>font相关属性</title>
+    <style>
+        html{
+            font-size: 40px;
+        }
+        #case{
+            color: #f40;
+            /* 在Chrome浏览器里支持的最小字号是12px */
+            font-size: 30px;
+        }
+        /* em是相对父元素的fon-size大小来说 */
+        .child{
+            width: 3em;
+            height: 3em;
+            background-color: #000;
+        }
+        /* rem相对于html标签的font-size来说 */
+        #sec-case{
+            /* width: 2rem;
+            height: 2rem; */
+            width: 200px;
+            height: 200px;
+            background-color: #123456;
+            font-size: 20px;
+            line-height: 200px;
+            /* 引用自定义的字体 */
+            font-family: "abc";
+        }
+        .line{
+            line-height: 50px;
+            /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+        }
+
+        /* line-height设置多行文本之间的行间距 */
+        /* line-height的值和元素的高一致时，单行文本在元素中竖直方向居中 */
+
+        @font-face{
+            /* 指定新字体的名称 */
+            font-family:"abc";
+            /* 链接下载的字体文件 */
+            src: url("btxb.ttf");
+        }
+        #change,#underline{
+            font-size: 30px;
+        }
+        .change-demo1{
+            /* 100 200 300 */
+            /* font-weight: lighter; */
+            font-weight: 100;
+        }
+        .change-demo2{
+            /*400 500 600*/
+            /* font-weight: normal; */
+            font-weight: 400;
+        }
+        .change-demo3{
+            /*700 800 900*/
+            /* font-weight: bold; */
+            font-weight: 700;
+        }
+        #change b{
+            font-weight: normal;
+        }
+        #underline a{
+            text-decoration: none;
+        }
+        #underline span{
+            /* overline上划线  line-through中划线/删除线 */
+            text-decoration: line-through;
+        }
+        #pra{
+            /* 设置段落首行缩进 */
+            text-indent: 4em;
+        }
+        #align{
+            width: 400px;
+            height: 400px;
+            background-color: #000;
+            font-size: 20px;
+            color: #fff;
+            /* 文本水平方向对齐方式 left/center/right */
+            text-align: center;
+            line-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="case">
+        <div class="child">HELLO WORLD</div>
+    </div>
+    <div id="sec-case">改变自己</div>
+    <div id="lines">
+        <div class="line">How are you?</div>
+        <div class="line">I`m fine.Thanks,and you?</div>
+        <div class="line">See you~</div>
+    </div>
+    <div id="change">
+        <span class="change-demo1">字体变细实例</span><br>
+        <span class="change-demo2">字体正常实例</span><br>
+        <span class="change-demo3">字体加粗实例</span><br>
+        <b>文字本身是加粗的</b>
+    </div>
+    <div id="underline">
+        <a href="#">测试取消下划线</a>
+        <span>普通文本添加各种线</span>
+    </div>
+    <p id="pra">
+        薄一波（1908年2月6日-2007年1月15日），原名薄书存，山西定襄县蒋村人。1925年入党，曾在山西，天津等地从事兵运等工作，3次入狱。1946年起，担任军队领导工作。建国后，历任华北局第1书记，军区政委，财政部部长，国务院第3办公室主任，国家建设委员会主任，国家经济委员会主任等职。
+    </p>
+    <div id="align">文字绝对居中</div>
+</body>
+</html>

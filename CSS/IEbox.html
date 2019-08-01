@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>怪异盒模型</title>
+    <style>
+        #putong{
+            box-sizing: content-box;
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid red;
+            margin: 20px;
+            background-color: #000;
+        }
+        /* 怪异盒模型：设置的宽高大小不再是内容的宽高而是盒子的宽高，包括内容，内边距和边框 */
+        /* 设置同样宽高的标准盒模型会大，怪异盒模型会小 */
+        /* 标准盒模型： 自己设置的width和height = 内容宽高 */
+        /* 怪异盒模型： 自己设置的width和height = 内容宽高 + padding + border */
+        #ie{
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            padding: 20px;
+            border: 2px solid red;
+            margin: 20px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="putong">普通盒模型</div>
+    <br><hr><br>
+    <div id="ie">怪异盒模型</div>
+</body>
+</html>

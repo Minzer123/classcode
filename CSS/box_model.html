@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子模型</title>
+    <style>
+        #father{
+            width: 500px;
+            height: 400px;
+            background-color: #000;
+        }
+        .child1{
+            width: 50%;
+            height: 50%;
+            background-color: #f00;
+        }
+        /* 盒模型： width，height，padding，border，margin */
+        /* 内容大小：width,height */
+        /* 盒子大小：width,height,padding,border */
+        /* 盒模型大小：
+            宽：width + padding-left + padding-right + border-left + border-right + margin-left + margin-right
+            高：height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom
+        */
+        .child2{
+            width: 50%;
+            height: 50%;
+            background-color: #369;
+            /* padding-top: 10px;
+            padding-bottom: 15px;
+            padding-left: 10px;
+            padding-right: 15px; */
+            /* 写一个值 上下左右*/
+            /* padding: 10px; */
+            /* 上下     左右 */
+            /* padding: 10px 15px; */
+            /* 上    左右     下 */
+            /* padding: 10px 15px 5px; */
+            /* 上   右   下   左 */
+            padding: 5px 10px 15px 20px;
+        }
+        .child3{
+            width: 200px;
+            height: 200px;
+            background-color: #abf;
+            /* solid直线 dotted点状线 dashed虚线 double双线 */
+            border: 5px double rgb(123,10,34);
+            /* 边框圆角 */
+            /* border-radius: 15px; */
+            /* 用百分比超过50%就不会变了 */
+            /* border-radius: 50%; */
+            border-top-left-radius: 50%;
+            /* border-top-right  border-bottom-left border-bottom-right */
+        }
+        #another-father{
+            width: 500px;
+            height: 500px;
+            background-color: #f40;
+            /* 父子元素竖直方向外边距合并问题解决办法：
+                1. 给父元素加border
+                2. 给父元素加overflow:hidden; 
+            */
+            /* border: 1px solid #f40; */
+            overflow: hidden;
+        }
+        /* 行内元素竖直方向上添加外边距无效 */
+        .an-child{
+            width: 100px;
+            height: 100px;
+            background-color: #f10180;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div class="child1"></div>
+        <div class="child2">HelloWorld</div>
+        <div class="child3"></div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <hr>
+    <br>
+    <div id="another-father">
+        <div class="an-child"></div>
+        <div class="an-child"></div>
+        <div class="an-child"></div>
+        <span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span><span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span><span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span><span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span><span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span><span class="an-child">hellohellohellohellohellohellohellohellohellohellohello</span> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景相关</title>
+    <style>
+        #back{
+            width: 300px;
+            height: 200px;
+            /* background-image: url("img/88859.jpg"); */
+            /* background-position: -100px -100px; */
+            /* cover 是不管图片是否会在区域中完整显示，但是一定会填满区域 */
+            background-size: cover;
+            /* contain 是不管是否填满区域，整张图片必须在区域完整显示 */
+            /* background-size: contain; */
+            /* background-repeat: no-repeat; */
+            background: url("img/88859.jpg") no-repeat center center;
+        }
+        #small-back{
+            width: 700px;
+            height: 500px;
+            background-image: url(img/logo2.png);
+            /* repeat 重复  no-repeat 不重复  repeat-x 只在水平方向重复   repeat-y 只在竖直方向重复 */
+            background-repeat: repeat-y;
+        }
+        #sprite{
+            /* 雪碧图使用 */
+            /* 1. 明确要展示的部分的宽高 */
+            width: 91px;
+            height: 32px;
+            /* 2. 明确要展示的部分在整张图片上左上角的坐标 ,用ps量出来，并且都是负值 */
+            background: url(img/little-icon.png) no-repeat 0 -36px;
+        }
+        #bell{
+            width: 17px;
+            height: 22px;
+            background: url(img/little-icon.png) no-repeat -282px -43px;
+        }
+        #flag{
+            width: 15px;
+            height: 9px;
+            background: url(img/sprite-prictice.png) no-repeat -168px -155px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/back.css">
+</head>
+<body>
+    <div id="back"></div>
+    <div id="outside-back"></div>
+    <div id="small-back"></div>
+    <div id="sprite"></div>
+    <div id="bell"></div>
+    <div id="flag"></div>
+</body>
+</html>

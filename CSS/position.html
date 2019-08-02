@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <style>
+        .block{
+            width: 200px;
+            height: 200px;
+        }
+        .b1{
+            background: #876;
+        }
+        .b2{
+            background: #387;
+            /* 相对定位 */
+            /* 相对定位的参照物是元素本身没有加定位属性时的最初位置 */
+            position: relative;
+            /* 都是正值情况下， top变大向下走，left变大向右走，right变大向左走，bottom变大向上走 */
+            /* top: 10px;
+            left: 20px; */
+            right: -10px;
+            bottom: -20px;
+        }
+        .b3{
+            background: #115;
+        }
+        #father{
+            width: 700px;
+            height: 700px;
+            background: red;
+            position: relative;
+            overflow: hidden;
+        }
+        #sub{
+            width: 500px;
+            height: 500px;
+            margin: 50px;
+            background: blue;
+            position: relative;
+        }
+        .b4{
+            background: #530;
+        }
+        .b5{
+            background: #0f9;
+            /* 绝对定位 */
+            /* 绝对定位的参照物：该元素的有定位属性的最近的父元素 */
+            position: absolute;
+            top: 20px;
+            left: 50px;
+        }
+        .b6{
+            background: #798;
+        }
+        #fix{
+            width: 300px;
+            height: 300px;
+            background: #000;
+            /* 固定定位 */
+            /* 固定定位的参照物：视口 */
+            position: fixed;
+            top: 100px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="block b1"></div>
+    <div class="block b2"></div>
+    <div class="block b3"></div>
+    <hr><hr>
+    <div id="father">
+        <div id="sub">
+            <div class="block b4"></div>
+            <div class="block b5"></div>
+            <div class="block b6"></div>
+        </div>
+    </div>
+    <div id="fix"></div>
+</body>
+</html>

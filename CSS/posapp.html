@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子绝父相</title>
+    <style>
+        #father{
+            width: 400px;
+            height: 400px;
+            background: #000;
+            position: relative;
+        }
+        .child{
+            width: 200px;
+            height: 200px;
+            background: #ff9;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -100px;
+            margin-left: -100px;
+        }
+        #content{
+            width: 288px;
+            height: 180px;
+            background: url(img/2.jpg) no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .text{
+            width: 100%;
+            text-align: center;
+            padding: 6px 0;
+            background: #000;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+        }
+        #container{
+            width: 500px;
+            height: 500px;
+            background: #000;
+            position: relative;
+        }
+        .son{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        .s1{
+            top: 20px;
+            left: 20px;
+            background: red;
+            z-index: 999;
+        }
+        .s2{
+            top: 40px;
+            left: 40px;
+            background: green;
+            z-index: 20;
+        }
+        .s3{
+            top: 60px;
+            left: 60px;
+            background: blue;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div id="father">
+        <div class="child"></div>
+    </div>
+    <hr>
+    <div id="content">
+        <div class="text">庄周</div>
+    </div>
+    <hr>
+    <div id="container">
+        <div class="son s1"></div>
+        <div class="son s2"></div>
+        <div class="son s3"></div>
+    </div>
+
+</body>
+</html>

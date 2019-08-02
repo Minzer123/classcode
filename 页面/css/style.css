@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+
+/* 顶部导航 */
+#nav-container{
+    overflow: hidden;
+}
+.nav{
+    float: right;
+    overflow: hidden;
+    margin: 12px 20px 0 0;
+}
+.nav li{
+    float: left;
+    list-style: none;
+    margin:5px 10px;
+}
+.nav li a{
+    color: #333;
+    font-size: 13px;
+}
+.nav li a:hover{
+    color: #999;
+    text-decoration: underline;
+}
+.nav .nav-icon{
+    width: 17px;
+    height: 17px;
+    background: url(../images/little-icon.png) no-repeat -138px -44px;
+    opacity: 0.5;
+    margin-top: 12px; 
+}
+.nav .nav-icon:hover{
+    opacity: 1;
+}
+.nav .nav-avatar{
+    width: 34px;
+    height: 34px;
+    color: #eee;
+    border-radius: 50%;
+    background: #567;
+    text-align: center;
+    line-height: 34px;
+}
+.nav .nav-li{
+    margin-top: 10px;
+}
+
+
+/* 中间主体 */
+#main{
+    width: 900px;
+    margin: 120px auto;
+    text-align: center;
+    overflow: hidden;
+}
+#main img{
+    width: 270px;
+}
+.search-group{
+    margin-top: 30px;
+    position: relative;
+}
+.search-group input{
+    width: 560px;
+    padding: 14px 20px;
+    font-size: 14px;
+    outline: none;
+    border-radius: 30px;
+    border: 1px solid #ddd;  
+}
+.search-group input:hover{
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+}
+.search-group .search{
+    width: 24px;
+    height: 24px;
+    background: url(../images/googlemic.png) no-repeat;
+    background-size: cover;
+    position: absolute;
+    right: 170px;
+    top: 11px;
+    cursor: pointer;
+}
+.btn-group{
+    margin-top: 30px;
+}
+.btn-group button{
+    border: 1px solid #f3f3f3;
+    padding: 10px 20px;
+    background: #f3f3f3;
+    color: #666;
+    border-radius: 5px;
+    margin: 0 5px;
+    /* 鼠标指针：手的形状 */
+    cursor: pointer;
+}
+.btn-group button:hover{
+    border: 1px solid #ddd;
+    color: #111;
+    background: #f9f9f9;
+}
+
+
+/* 底部栏 */
+#footer{
+    width: 100%;
+    border-top: 1px solid #ddd;
+    background: #f2f2f2;
+    position: fixed;
+    bottom: 0;
+    overflow:hidden;
+    padding: 8px 0;
+}
+#footer .footer-left{
+    float: left;
+    overflow: hidden;
+    padding-left: 18px;
+}
+#footer .footer-right{
+    float: right;
+    overflow: hidden;
+    padding-right: 18px;
+}
+#footer ul li{
+    float: left;
+    list-style: none;
+    margin: 0 10px;
+}
+#footer ul li a{
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+}
+#footer ul li a:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        #father{
+            width: 500px;
+            /* height: 100px; */
+            background-color: #000;
+            border: 1px solid #000;
+            /* 1. 给父元素添加overflow:hidden */
+            /* overflow: hidden; */
+        }
+        .child{
+            width: 100px;
+            height: 100px;
+            background: #ff8;
+            margin: 10px;
+            /* float: left; */
+            float: right;
+        }
+        #another{
+            width: 300px;
+            height: 300px;
+            background-color: #5f9;
+        }
+        #big{
+            width: 900px;
+            background-color: #999;
+        }
+        .small{
+            width: 350px;
+            height: 350px;
+            background-color: #333;
+            float: left;
+            margin: 30px;
+        }
+        .clear{
+            clear:both;
+        }
+        #father::after{
+            display:block;
+            content:"";
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="father">
+        <!-- 浮动的元素因为脱离了文档流，已经不受行内元素和块元素的限制 -->
+        <!-- 浮动的元素脱离文档流，将不会撑起父元素的高 -->
+        <!-- 浮动的元素会有依次贴边现象 -->
+        <!-- 浮动的元素因为脱离文档流将不占页面位置 -->
+        <div class="child">1</div>
+        <div class="child">2</div>
+        <div class="child">3</div>
+        <!-- 2. 在浮动元素同级后面添加一个div,设置样式clear:both -->
+        <!-- <div class="clear"></div> -->
+    </div>
+
+
+
+    <div id="another"></div>
+    <br><br><br><hr><br><br><br>
+    <div id="big">
+        <!-- 浮动的元素在竖直方向上的外边距合并现象消失 -->
+        <div class="small"></div>
+        <div class="small"></div>
+        <div class="small"></div>
+        <div class="small"></div>
+        <div class="small"></div>
+        <div class="small"></div>
+    </div>
+
+
+    <!-- 清除浮动的方法： -->
+    <!-- 1. 给浮动元素的父元素添加 overflow:hidden -->
+    <!-- 2. 在浮动元素同级后面添加一个 div,设置样式 clear:both -->
+    <!-- 3. 给浮动元素的父元素添加一个::after伪元素，设置其属性 display:block;content:"";clear:both; -->
+    <!-- 4. 给父元素添加固定高度，使其包住子元素（伪清除浮动） -->
+</body>
+</html>

@@ -1,0 +1,332 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    background: #d6dae2;
+}
+
+/* header开始 */
+
+#header{
+    width: 100%;
+    box-shadow: 0 1px 5px 1px rgba(0,0,0,.3);
+    background: #fff;
+}
+.header-content{
+    width: 1200px;
+    margin: 0 auto;
+}
+.header-content::after{
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.logo,.nav{
+    float: left;
+}
+.search-login{
+    float: right;
+}
+
+.logo{
+    height: 78px;
+    cursor: pointer;
+}
+.logo img{
+    height: 100%;
+}
+
+.nav{
+    overflow: hidden;
+    list-style: none;
+    margin-left: 70px;
+}
+.nav li{
+    float: left;
+    height: 78px;
+    cursor: pointer;
+}
+.nav li.index{
+    width: 92px;
+    background: url(imgs/nav.png) no-repeat 0 0;
+}
+.nav li.index:hover{
+    background: url(imgs/nav-on.png) no-repeat 0 0;
+}
+.nav li.wx {
+    width: 113px;
+    background: url(imgs/nav.png) no-repeat -92px 0;
+}
+.nav li.wx:hover{
+    background: url(imgs/nav-on.png) no-repeat -92px 0;
+}
+.nav li.open {
+    width: 132px;
+    background: url(imgs/nav.png) no-repeat -205px 0;
+}
+.nav li.open:hover{
+    background: url(imgs/nav-on.png) no-repeat -205px 0;
+}
+.nav li.internet {
+    width: 109px;
+    background: url(imgs/nav.png) no-repeat -337px 0;
+}
+.nav li.internet:hover{
+    background: url(imgs/nav-on.png) no-repeat -337px 0;
+}
+.nav li.yingxiao {
+    width: 113px;
+    background: url(imgs/nav.png) no-repeat -446px 0;
+}
+.nav li.yingxiao:hover{
+    background: url(imgs/nav-on.png) no-repeat -446px 0;
+}
+.nav li.game {
+    width: 112px;
+    background: url(imgs/nav.png) no-repeat -559px 0;
+}
+.nav li.game:hover{
+    background: url(imgs/nav-on.png) no-repeat -559px 0;
+}
+.nav li.cloud {
+    width: 109px;
+    background: url(imgs/nav.png) no-repeat -671px 0;
+}
+.nav li.cloud:hover{
+    background: url(imgs/nav-on.png) no-repeat -671px 0;
+}
+
+
+.search-login{
+    list-style: none;
+    height: 78px;
+}
+.search-login::after{
+    clear:both;
+    display:block;
+    content: "";
+}
+.search-login li{
+    float: left;
+    margin: 15px 5px;
+}
+.search-login .search{
+    margin-top: 24px;
+    position: relative;
+    cursor: pointer;
+}
+.search-login .search:hover .icon-scale{
+    background: url(imgs/search_hover.png) no-repeat;
+}
+.search-login .search:hover .input-box{
+    display: block;
+}
+.search-login .search .icon-scale{
+    width: 30px;
+    height: 30px;
+    background: url(imgs/search.png) no-repeat;
+}
+.search-login .search .input-box{
+    width: 350px;
+    position: absolute;
+    top: 53px;
+    right: -90px;
+    display: none;
+    border-top: 2px solid rgb(253,119,1);
+    padding: 8px;
+    background: #fefefe;
+    z-index: 9999;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.2);
+}
+.search-login .search .input-box input{
+    width: 260px;
+    font-size: 16px;
+    padding: 5px;
+    outline: none;
+    border: 1px solid #a99;
+    border-right: none;
+    vertical-align: middle;
+}
+.search-login .search .input-box button{
+    width:75px;
+    height: 30px;
+    font-size: 18px;
+    color: #fefefe;
+    background: rgb(253,119,1);
+    text-align: center;
+    border: none;
+    line-height: 30px;
+    vertical-align: middle;
+}
+.search-login .line{
+    font-size: 30px;
+    font-weight: 100;
+    color: #dbdbdb;
+    margin-top: 20px;
+}
+.search-login .login{
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+.search-login .login img{
+    width: 30px;
+    margin-bottom: -5px;
+}
+.search-login .login a{
+    font-size: 12px;
+    text-decoration: none;
+    color: #a99;
+}
+.search-login .login a:hover{
+    color: #14b9e6;
+}
+
+/* banner部分 */
+#banner{
+    width: 100%;
+}
+#banner a{
+    display: block;
+    height: 335.75px;
+}
+#banner a img{
+    width: 100%;
+}
+#banner .broadcast{
+    width: 100%;
+    background: #fff;
+    
+}
+#banner .broadcast .broadcast-content{
+    width: 1100px;
+    margin: 0 auto;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    padding: 8px 0;
+}
+#banner .broadcast .broadcast-content .cen {
+    position: absolute;
+    left: 50%;
+    margin-left: -20px;
+    bottom: 0;
+    cursor: pointer;
+}
+#banner .broadcast .broadcast-content img,
+#banner .broadcast .broadcast-content span{
+    vertical-align: middle;
+}
+
+#banner .broadcast .broadcast-content span{
+    margin-left: 10px;
+}
+
+
+
+/* 主体部分 */
+#main{
+    width: 1100px;
+    margin: 20px auto;
+    position: relative;
+}
+#main::after{
+    display: block;
+    clear:both;
+    content: "";
+}
+#main .main-left{
+    width: 800px;
+    float: left;
+    /* height: 500px; */
+    /* background: #fff; */
+}
+#main .main-left .hot-course{
+    padding: 20px;
+    background: #f2f1ef;
+}
+#main .main-left .title{
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+#main .main-left .title img,
+#main .main-left .title span{
+    vertical-align: middle;
+}
+#main .main-left .title span{
+    margin-left: 10px;
+    font-size: 18px;
+}
+#main .main-left .title a{
+    float: right;
+    text-decoration: none;
+    font-size: 12px;
+    color: #666;
+}
+#main .main-left .course-content{
+    overflow: hidden;
+}
+#main .main-left .course-content a{
+    display: block;
+}
+#main .main-left .course-content .course{
+    float: left;
+    width: 237px;
+    background: #fff;
+    padding-bottom: 30px;
+}
+#main .main-left .course-content .course.coursewr{
+    margin-right: 24px;
+}
+#main .main-left .course-content .course img{
+    width: 237px;
+}
+#main .main-left .course-content .course img.border-1{
+    border-bottom: 3px solid #1fc0ef;
+}
+#main .main-left .course-content .course img.border-2 {
+    border-bottom: 3px solid #f6a544;
+}
+#main .main-left .course-content .course img.border-3 {
+    border-bottom: 3px solid #8cbe00;
+}
+#main .main-left .course-content .course h6{
+    font-weight: 400;
+    font-family: "Microsoft YaHei";
+    margin: 10px;
+    color: #333;
+}
+#main .main-left .course-content .course p{
+    margin: 10px;
+    font-size: 12px;
+    color: #999;
+}
+#main .main-right{
+    width: 280px;
+    margin-left: 20px;
+    float: right;
+    /* height: 500px; */
+    background: #0f0;
+}
+#main .qrcode{
+    position: absolute;
+    top: 0;
+    right: -110px;
+    width: 100px;
+    /* height: 150px; */
+    background: #fff;
+    padding: 5px;
+}
+#main .qrcode p{
+    font-size: 12px;
+}
+#main .qrcode .qr-img{
+    width: 100px                                        ;
+    height: 100px;
+    background: url(imgs/qr.jpg) no-repeat;
+    background-size: cover;
+}
+

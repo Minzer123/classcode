@@ -208,6 +208,9 @@ body{
     position: relative;
     padding: 8px 0;
 }
+#banner .broadcast .broadcast-content .bell{
+    margin-left: 20px;
+}
 #banner .broadcast .broadcast-content .cen {
     position: absolute;
     left: 50%;
@@ -243,9 +246,11 @@ body{
     /* height: 500px; */
     /* background: #fff; */
 }
-#main .main-left .hot-course{
+#main .main-left .hot-course,
+#main .main-left .dry-share {
     padding: 20px;
     background: #f2f1ef;
+    margin-bottom: 20px;
 }
 #main .main-left .title{
     width: 100%;

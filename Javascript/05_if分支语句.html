@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if分支语句</title>
+</head>
+
+<body>
+    <script>
+        // 90
+        // 跳楼现象 ： 每一个带有 else 的分支，条件是默认不满足上面分支条件的
+        var score = 62;
+        if (score >= 85) {
+            console.log("优");
+        } else if (score >= 70) {
+            console.log("良");
+        } else if (score >= 60) {
+            console.log("可");
+        } else {
+            console.log("差");
+        }
+
+        var a = 1,
+            b = 2;
+
+        if (a < b) {
+            if (a == 1) {
+                console.log("满足条件");
+            } else {
+                console.log("满足a小于b，但a不是1");
+            }
+        } else {
+            console.log("不满足a小于b");
+        }
+
+        // 条件运算符（三元运算符）是对简单分支语句的简写
+        // if (a > 0) {
+        //     a--;
+        // } else {
+        //     a++;
+        // }
+        a > 0 ? a-- : a++;
+    </script>
+</body>
+
+</html>

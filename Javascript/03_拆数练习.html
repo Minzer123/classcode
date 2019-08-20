@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拆数练习</title>
+</head>
+<body>
+    <script>
+        var userInput = parseInt(prompt("请输入一个三位数"));
+        if(!isNaN(userInput)){
+            if(userInput >= 100 && userInput <= 999){
+                // 123
+                // 个位  123 % 10
+                // 百位  123 / 100 = 1.23  1.23再取整得到  1
+                // 拿十位上的数字方法比较多，以下分类：
+                // 方法一： 拿到三位数的后两位 123 - 100 = 23 或者 123 % 100 = 23
+                // 用后两位再获取十位数字 23 / 10 = 2.3   2.3再取整得到 2
+                //方法二： 那到三位数的前两位 （123 - 3） / 10 = 12
+                // 用前两位再获取个位数字 12 % 10 = 2
+
+                var ge = userInput % 10;
+                var bai = parseInt(userInput / 100);
+                // var shi = parseInt((userInput - 100 * bai) / 10);
+                // var shi = parseInt((userInput % 100) / 10);
+                var shi = (userInput - ge) / 10 % 10;
+                console.log("这个三位数每个数位上的数字之和是" + (ge + shi + bai));
+            }
+        }
+    </script>
+</body>
+</html>

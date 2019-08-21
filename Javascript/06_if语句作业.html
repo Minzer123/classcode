@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作业</title>
+</head>
+
+<body>
+    <script>
+        // 第一题
+        // var aNum = parseInt(prompt("请输入一个数"));
+        // if (!isNaN(aNum)) {
+        //     if (aNum % 5 == 0 && aNum % 6 == 0) {
+        //         alert(aNum+"既能被5整除又能被6整除");
+        //     }else if(aNum % 5 == 0 && aNum % 6 != 0){
+        //         alert(aNum+"能被5整除但不能被6整除");
+        //     }else if(aNum % 5 != 0 && aNum % 6 == 0){
+        //         alert(aNum+"能被6整除但不能被5整除");
+        //     }else if(aNum % 5 != 0 && aNum % 6 != 0){
+        //         alert(aNum+"既不能被5整除又不能被6整除");
+        //     }
+        // }
+
+        // 1 + 3 = 4
+        // 2 + 4 = 6
+        // 1 + 4 = 5
+        // 奇偶性相同的做和 是偶数
+        // 奇偶性不同的做和 是奇数
+        // var num1 = parseInt(prompt("请输入一个数"));
+        // var num2 = parseInt(prompt("请输入另一个数"));
+        // if (!isNaN(num1) && !isNaN(num2)) {
+        //     if ((num1 + num2) % 2 == 0) {
+        //         alert(num1 + "和" + num2 + "奇偶性相同");
+        //     } else {
+        //         alert(num1 + "和" + num2 + "奇偶性不同");
+        //     }
+        // }
+
+
+
+        // var year = parseInt(prompt("请输入一个年份"));
+        // if (!isNaN(year)) {
+        //     if(year % 100 === 0){
+        //         if(year % 400 === 0){
+        //             alert(year+"年是闰年");
+        //         }else{
+        //             alert(year+"年不是闰年");
+        //         }
+        //     }else{
+        //         if(year % 4 === 0){
+        //             alert(year+"年是闰年");
+        //         }else{
+        //             alert(year+"年不是闰年");
+        //         }
+        //     }
+        // }
+
+
+        var workTime = parseFloat(prompt("请输入工作年限"));
+        var salary = parseFloat(prompt("请输入月薪"));
+        var times = 0;
+        var reward = 0;
+        if (!isNaN(workTime) && !isNaN(salary)) {
+            if (workTime >= 2) {
+                if (salary > 12000) {
+                    times = 3.2;
+                } else {
+                    times = 3;
+                }
+            } else if (workTime >= 1) {
+                if (salary > 10000) {
+                    times = 1.7;
+                } else {
+                    times = 1.5;
+                }
+            } else {
+                if (salary > 8000) {
+                    times = 1.2;
+                } else {
+                    times = 1;
+                }
+            }
+        }
+        reward = salary * times;
+        console.log("工作年份是" + workTime + "年，月薪是" + salary + "元的员工获得的年终奖是" + reward + "元");
+    </script>
+
+
+</body>
+
+</html>

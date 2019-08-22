@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for循环</title>
+</head>
+
+<body>
+    <script>
+        // 3题
+        // var n = parseInt(prompt("请输入n"));
+        // var sum = 0;
+        // if (!isNaN(n)) {
+        //     for (var i = 2; i <= n; i++) {
+        //         // sum=sum+(i+1)/i;
+        //         sum += (i + 1) / i;
+        //     }
+        //     console.log("最后的和是" + sum);
+        // }
+
+
+
+        // 10题
+        // for (var i = 0; i <= 66; i++) {
+        //     for (var j = 0; j <= 100; j++) {
+        //         for (var k = 0; k <= 100; k++) {
+        //             if (3 * i + j * 2 + k == 200 && i + j + k == 100) {
+        //                 console.log("apple " + i + " pear " + j + " peach " + k);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // 8题
+        // 判48是不是质数
+        // 约数个数是不是2个
+        // var geShu = 0;
+        // for(var i = 1;i<=48;i++){
+        //     if(48 % i == 0){
+        //         geShu++;
+        //     }
+        // }
+        // if(geShu === 2){
+        //     console.log("48是质数");
+        // }
+
+
+        // 除了 1 和它自己 还有别的约数 则不是质数
+        // for (var i = 2; i < 48; i++) {
+        //     if (48 % i == 0) {
+        //         break;
+        //     }
+        //     console.log("48是质数");
+        // }
+
+
+        var userInput = parseInt(prompt("请输入一个数"));
+        var num = 0;
+        if (!isNaN(userInput)) {
+            for (var i = 1; i <= userInput; i++) {
+                if (userInput % i == 0) {
+                    num++;
+                }
+            }
+            if (num === 2) {
+                console.log(userInput + "是质数");
+            }
+        }
+
+        // 9题
+        for (var i = 1; i <= 10000; i++) {
+            for (var j = 1; j <= i; j++) {
+                if (i % j == 0) {
+                    num++;
+                }
+            }
+            if (num === 2) {
+                console.log(i + "是质数");
+            }
+        }
+    </script>
+</body>
+
+</html>

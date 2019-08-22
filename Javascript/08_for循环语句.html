@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for循环</title>
+</head>
+
+<body>
+    <script>
+        // for 循环执行顺序 一 -> 二 -> 四 -> 三 -> 二 -> 四 -> 三 -> 二 -> 四 -> 三 -> ......
+        // for(一、循环变量初始化;二、循环条件;三、循环变量改变){
+        // 四、循环体
+        // }
+        // for (var i = 1; i <= 10; i++) {
+        //     console.log(i);
+        // }
+        // for (var j = 10; j >= 1; j--) {
+        //     console.log(j);
+        // }
+
+
+        // 求48的所有约数
+
+        // for (var m = 1; m <= 48; m++) {
+        //     if (48 % m === 0) {
+        //         console.log(m + "是48的约数");
+        //     }
+        // }
+
+        // 水仙花数
+        for (var n = 100; n <= 999; n++) {
+            var ge = n % 10;
+            var bai = parseInt(n / 100);
+            var shi = (n - ge) / 10 % 10;
+            var sum = Math.pow(ge, 3) + Math.pow(shi, 3) + Math.pow(bai, 3);
+            if (n == sum) {
+                console.log(n + "是水仙花数");
+            }
+        }
+
+        // 求 1000 ~ 9999 范围内的 四叶玫瑰数   （每一位上的数字的4次方之和还等于这个数本身）
+        // 例如  1634 = 1的四次方 + 6的四次方 + 3的四次方 + 4的四次方 = 1 + 1296 + 81 + 156
+        for (var n = 1000; n <= 9999; n++) {
+            var ge = n % 10;
+            var shi = (n - ge) / 10 % 10;
+            var qian = parseInt(n / 1000);
+            var bai = parseInt((n - qian * 1000) / 100);
+            var sum = Math.pow(ge, 4) + Math.pow(shi, 4) + Math.pow(bai, 4) + Math.pow(qian, 4);
+            if (n == sum) {
+                console.log(n + "是四叶玫瑰数");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数的定义和调用</title>
+</head>
+
+<body>
+    <script>
+        he(40, 56);
+        // 定义/封装/声明 函数
+        function sayHello() {
+            console.log("How are you?");
+            console.log("I'm fine.Thanks,and you?");
+        }
+        // 函数的调用  只有调用函数，其中的代码才会执行
+        // sayHello();
+
+        // 1. 可以把需要在多个场景下重复且有序执行的代码块封装成函数
+        // 2. 函数是解决一类问题的工具
+
+        // 封装一个函数，求两个数的和，并把结果打印在控制台
+        function he(a, b) {
+            console.log(a + b);
+            // return a+b;
+        }
+        // var res = he(2,3);
+        // console.log(res); // undefined
+        // he(5,8);// 13
+
+
+        // 如果函数封装过程中，指明返回值，则有特定的返回值；如果没有指定，函数的返回值为 undefined
+        // 如果一个函数执行完后的结果需要再次被利用的话，我们需要在函数定义的时候加一个return
+
+
+        // 函数定义  调用   形式参数    实际参数    返回值
+        // ui是用户直接输入的内容，没有被转化
+        function checkUserInput(ui) {
+            if (!isNaN(parseInt(ui))) {
+                console.log("用户输入的是数字");
+            } else {
+                console.log("用户输入的不是数字");
+            }
+        }
+        // var userInput = prompt("输入");
+        // checkUserInput(userInput);
+
+        // 判断一个数是不是质数
+        function isPrime(num) {
+            var n = 0;
+            for (var i = 1; i <= num; i++) {
+                if (num % i == 0) {
+                    n++;
+                }
+            }
+            if (n == 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // console.log(isPrime(57));
+        // console.log(isPrime(39));
+        // console.log(isPrime(31));
+
+        // 打印1 ~ 10000 范围内的质数
+        for(var i = 1;i<=10000;i++){
+            if(isPrime(i)){
+                console.log(i);
+            }
+        }
+
+
+        // 偶数 = 1 + (偶数-1)
+        // 偶数 = 2 + (偶数-2)
+        // 偶数 = 3 + (偶数-3)
+    </script>
+</body>
+
+</html>

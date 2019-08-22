@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验证哥德巴赫猜想</title>
+</head>
+
+<body>
+    <script>
+        // 判断一个数是不是质数
+        function isPrime(num) {
+            var n = 0;
+            for (var i = 1; i <= num; i++) {
+                if (num % i == 0) {
+                    n++;
+                }
+            }
+            if (n == 2) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        // 从 2开始所有的偶数
+        var n = 2;
+        while (n % 2 == 0 && n <= 100) {
+            for (var x = 1; x <= n - 1; x++) {
+                if (isPrime(x) && isPrime(n - x)) {
+                    console.log(n + "符合哥德巴赫猜想");
+                }
+            }
+            n += 2;
+        }
+    </script>
+</body>
+
+</html>

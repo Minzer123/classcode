@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数深入</title>
+</head>
+
+<body>
+    <script>
+        // var a;
+        // 递归
+        // 斐波那契数列   1，1，2，3，5，8，13，21，34，55，89，144 ...
+        function fib(n) {
+            if (n == 1 || n == 2) {
+                return 1;
+            } else {
+                return fib(n - 1) + fib(n - 2);
+            }
+        }
+        // console.log(fib(10));
+        // 猴子吃桃： 一堆桃子不知个数，第一天吃掉总数的一半又多一个，第二天吃掉剩下的一半又多一个，以此类推，当到第10天时，桃子只剩一个，最初这堆桃子有多少个
+        // 第十天   n10 = n9-n9/2-1   
+        // 第九天   n9 = 2 * (n10+1)  n9 = n8 - n8/2 -1
+        // 第八天   n8 = 2 * (n9+1)
+        function monkeyEatPeach(n) {
+            if (n == 10) {
+                return 1;
+            } else {
+                return (monkeyEatPeach(n + 1) + 1) * 2;
+            }
+        }
+
+        // for (var i = 1; i <= 10; i++) {
+        //     console.log("第" + i + "天的桃子数是" + monkeyEatPeach(i));
+        // }
+
+        // 函数表达式
+
+        var sayHello = function () {
+            console.log("Hello World");
+        }
+        sayHello();
+
+        // a = 100;
+        // console.log(a);
+
+
+        // 函数声明提升
+        // sayGoodBye();
+        // function sayGoodBye(){
+        //     console.log("goodbye");
+        // }
+        var sayGoodBye = function () {
+            console.log("goodbye");
+        }
+        sayGoodBye();
+
+        // function关键字定义函数     函数表达式定义函数 区别：
+        // 前者会存在函数声明提升     后者没有     
+        // 其结果是 有函数声明提升的 支持先调用后声明
+
+
+        // arguments  盛放函数所有参数的容器
+        // arguments 是一个类数组  会有下标（索引）和长度 length
+        function sum() {
+            // console.log(arguments);
+            // console.log(arguments[0]);
+            // console.log(arguments.length);
+            // if(arguments.length === 1){
+
+            // }else if(arguments.length === 2){
+
+            // }
+            switch (arguments.length){
+                case 1:
+                console.log(arguments[0]);
+                break;
+                case 2:
+                console.log(arguments[0]+arguments[1]);
+                break;
+            }
+            
+        }
+
+        sum("hello"," world");
+    </script>
+</body>
+
+</html>

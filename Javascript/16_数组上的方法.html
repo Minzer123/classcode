@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组上的方法</title>
+</head>
+
+<body>
+    <script>
+        var arr = ["a", "b", "c", "d", "e", "f"];
+        // splice替换功能  传三部分参数  第一部分：替换的起始位置下标  第二部分：连续替换几项   第三部分： 用来替换旧数据项的新数据
+        arr.splice(3, 3, 1, 2, 3, 4, 5);
+
+        console.log(arr);
+
+        // arr = ["a", "b", "c", 1, 2, 3, 4, 5]
+
+        // splice插入功能 传三部分参数 第一部分：插入新数据的位置下标，在此位置之前插入 第二部分：固定的0 第三部分： 插入的新数据
+        arr.splice(3, 0, "HelloWorld");
+        console.log(arr);
+
+        // arr = ["a", "b", "c", "HelloWorld", 1, 2, 3, 4, 5]
+        // arr.splice(-3);// 传一个参数 负数表示从倒数第几项开始到数组最后一项全被删掉
+        // arr.splice(3);// 传一个参数 正数表示从这个下标位置开始到数组最后一项全被删掉
+        arr.splice(3, 2); //  传两个参数  第一个参数： 从该下标位置开始删除   第二个参数： 连续删除几项
+        console.log(arr);
+
+
+
+        // filter 过滤方法
+
+        var oArr = ["hello", 123, 34, "byebye"];
+        var newNumArr = oArr.filter(function (item) {
+            return typeof item == "number";
+        });
+        var newStrArr = oArr.filter(function (item) {
+            return typeof item == "string";
+        });
+        console.log(oArr);
+        console.log(newNumArr);
+        console.log(newStrArr);
+
+
+        // map 把数组中的每一项按照同一种处理方法处理之后返回新的数组
+        var mArr = ["111", "2333", "666哈哈", "777"];
+
+        function changeType(str) {
+            return parseInt(str);
+        }
+        var newMArr = mArr.map(changeType);
+        console.log(newMArr);
+
+
+        // some 检测数组中是否有满足某个条件的数据项，如果有则返回true,都不满足返回false
+        // every 检测数组中的每个数据项是否都满足某个条件，如果都满足返回true,只要有一个不满足则返回false
+
+        // oArr = ["hello",123,34,"byebye"]
+        function checkNumber(i) {
+            return typeof i === "number";
+        }
+
+        var res1 = oArr.every(checkNumber);
+        console.log(res1); // false
+        var res2 = oArr.some(checkNumber);
+        console.log(res2); // true
+        console.log("==========================================================");
+        oArr.push("hello");
+        console.log(oArr);
+        // indexOf 检测数组中是否包含具体的某一项，如果包含则返回第一次出现该项的下标，如果不包含则返回-1
+        console.log(oArr.indexOf("hello"));
+        console.log(oArr.indexOf("world"));
+        console.log(oArr.lastIndexOf("hello"));
+
+        // forEach 方法遍历数组
+        oArr.forEach(function (ele, idx) {
+            // 第一个参数代表遍历的数组中的每一项数据
+            // 第二个参数代表遍历的数组中的每一项的下标
+            console.log(idx + "======" + ele);
+        });
+    </script>
+</body>
+
+</html>

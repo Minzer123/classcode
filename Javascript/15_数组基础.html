@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组基础</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = [12, 23, 34, 45, 56, 67];
+        // 数组的遍历 ：把数组中的每一项数据都取到
+        // for (var i = 0; i < arr1.length; i++) {
+        //     if (i % 2 !== 0) {
+        //         console.log(arr1[i]);
+        //     }
+        // }
+        arr1[0] = "hello";
+        // console.log(arr1);
+        arr1[6] = "world";
+        // console.log(arr1);
+        
+        // arr1 = ["hello", 23, 34, 45, 56, 67, "world"]
+        arr1.pop();// 尾删
+        // console.log(arr1);
+        arr1.push(78);// 尾插
+        // console.log(arr1);
+        arr1.shift();// 头删
+        // console.log(arr1);
+        arr1.unshift("haha");// 头插
+        // console.log(arr1);
+
+        var arr2 = [1,2,3];
+        var arr3 = ["a","b","c"];
+        var arr4 = [1,"a"];
+        var newArr = arr2.concat(arr3,arr4);
+        // console.log(arr2);// [1,2,3] 说明调用concat不会改变原数组
+        // console.log(newArr);
+
+        // arr1 =  ["haha", 23, 34, 45, 56, 67, 78]
+        var cutArr = arr1.slice(2,4);// 调用slice方法不会改变原数组
+        console.log(cutArr);
+        console.log(arr1);
+
+        var cutEndArr = arr1.slice(1);// 从下标为1的开始到数组最后一项
+        console.log(cutEndArr);
+
+        // splice
+
+        // reverse 让数组中的数据逆序
+        var reArr = [1,"a",true,undefined,null];
+        reArr.reverse();// 会改变原数组
+        console.log(reArr);
+
+        // sort 不是按照数值大小排序，而是按照字符编码大小排序
+        var numArr = [23,435,456,23,2,345,2,32,11,324,32,43,65,667,78,43];
+        numArr.sort();
+        console.log(numArr);
+        // sort 方法加参数可实现数组中数据按数值大小排序
+        numArr.sort(function(x,y){
+            return y - x;// x-y从小到大；y-x从大到小
+        });
+        console.log(numArr);
+
+
+        // join 把数组中的每一项拿出来拼成一个字符串
+        // reArr = [null, undefined, true, "a", 1]
+        var newReStr = reArr.join("");// 不传参，默认用 , 作为分隔符
+        console.log(newReStr);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM操作基础</title>
+</head>
+<body>
+    <div id="hello">
+        <span>Hello World</span>
+        <!-- #hello div div div -->
+        <div>
+            <div>
+                <div>deep div</div>
+            </div>
+        </div>
+        
+    </div>
+    <p class="test">第一行文本</p>
+
+    <p class="test">测试获取标签</p>
+    <span>123</span>
+    
+
+
+    <script>
+        // 获取元素
+
+        var oHello = document.getElementById("hello");
+        console.log(oHello);
+        // getElementsByTagName 和 getElementsByClassName 获取到的元素有可能不只一个，所以结果在一个数组中
+        var oSpans = document.getElementsByTagName("span");
+        console.log(oSpans);
+        var hw = oHello.getElementsByTagName("span")[0];
+        console.log(hw);
+        var oTests = document.getElementsByClassName("test");
+        console.log(oTests);
+
+        // querySelector 和 querySelectorAll 的参数都是写 css 的选择器
+        var oDeepDiv = document.querySelector("#hello div div div");
+        console.log(oDeepDiv);
+        var oPs = document.querySelectorAll(".test");
+        console.log(oPs);
+
+        var newDiv = document.createElement("div");
+        console.log(newDiv);
+        // 目标标签.appendChild(新创建的标签)  appendChild 会把新元素放到指定元素内部的最后边
+        oHello.appendChild(newDiv);
+
+        var anotherDiv = document.createElement("h1");
+        // 父元素.insertBefore(新元素，老元素)  把新元素插入到老元素之前
+        document.body.insertBefore(anotherDiv,oTests[1]);
+
+        // 把 hw 从 oHello 里移除
+        // 父元素.removeChild(要被移除的元素)
+        oHello.removeChild(hw);
+
+        // 把 <span>123</span> 换成  新创建的 ul
+        var newUl = document.createElement("ul");
+        // console.log(newUl,oSpans[0]);
+        // 因为之前把第一个span,也就是 hw 已经移除，所以oSpans里只有一个span,所以<span>123</span>变成了oSpans[0]
+        // 父元素.replaceChild(新元素，老元素) 用新元素替换老元素
+        document.body.replaceChild(newUl,oSpans[0]);
+
+        var newLi1 = document.createElement("li");
+        newLi1.innerText = "第一个手动创建的li";
+        // 被克隆的元素.cloneNode() 
+        // 参数默认是false 表示只克隆DOM节点，不克隆内部内容
+        // 参数是 true 的时候 就会连同DOM 节点里的内容都被克隆
+        var newLi2 = newLi1.cloneNode(true);
+        // console.log(newLi1,newLi2);
+        newUl.appendChild(newLi1);
+        newUl.appendChild(newLi2);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>运动函数测试</title>
+    <style>
+        .test {
+            position: relative;
+        }
+
+        #test1 {
+            width: 100px;
+            height: 30px;
+            background: #000;
+        }
+
+        #test2 {
+            width: 50px;
+            height: 50px;
+            background: #f40;
+            border-radius: 50%;
+        }
+
+        #controlPanel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #090e19;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        #controlPanel tr td{
+            padding: 10px 20px;
+        }
+
+        #controlPanel .controlBtn {
+            height: 40px;
+            width: 100px;
+            background: transparent;
+            color: #09f1f7;
+            line-height: 40px;
+            border: 1px solid #09f1f7;
+            outline: none;
+            position: relative;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 5px 4px rgba(9,241,247,.2);
+            transition: all 300ms ease 10ms;
+        }
+
+        #controlPanel .controlBtn:hover {
+            background: #09f1f7;
+            color: #fff;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        #controlPanel .controlBtn::before {
+            display: inline-block;
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: -35px;
+            top: -1px;
+            border-left: 20px solid transparent;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-radius: 10px;
+            transition: all 300ms ease;
+            z-index: -1;
+        }
+
+        #controlPanel .controlBtn::after {
+            display: inline-block;
+            content: "";
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 93px;
+            top: -1px;
+            border-right: 20px solid transparent;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent;
+            border-left: 20px solid transparent;
+            border-radius: 10px;
+            transition: all 300ms ease;
+            z-index: -1;
+        }
+        #controlPanel .controlBtn:hover::before{
+            border-right: 20px solid #09f1f7;
+        }
+        #controlPanel .controlBtn:hover::after{
+            border-left: 20px solid #09f1f7;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- 将要被控制的倒霉div -->
+    <div id="test1" class="test" style="top:314px;left:200px;"></div>
+
+    <!-- 将要被控制的更倒霉的p -->
+    <p id="test2" class="test" style="top:0;left:110px;"></p>
+
+
+    <!-- 控制器面板 -->
+    <table id="controlPanel">
+        <tr>
+            <td></td>
+            <td><button id="moveTop" class="controlBtn"><span>上</span></button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button id="moveLeft" class="controlBtn"><span>左</span></button></td>
+            <td></td>
+            <td><button id="moveRight" class="controlBtn"><span>右</span></button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="moveBottom" class="controlBtn"><span>下</span></button></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        // 为了偷懒，用类名获取所有按钮
+        var btns = document.querySelectorAll(".controlBtn");
+
+        // 实验品1
+        var oDiv = document.getElementById("test1");
+        // 实验品2
+        var oP = document.getElementById("test2");
+
+        // 往上走
+        btns[0].onclick = function () {
+            changePosition(oDiv, "top", false, 10);
+            changePosition(oP, "top", false, 20);
+        }
+        // 往左走
+        btns[1].onclick = function () {
+            changePosition(oDiv, "left", false, 10);
+            changePosition(oP, "left", false, 20);
+        }
+        // 往右走
+        btns[2].onclick = function () {
+            changePosition(oDiv, "left", true, 10);
+            changePosition(oP, "left", true, 20);
+        }
+        // 往下走
+        btns[3].onclick = function () {
+            changePosition(oDiv, "top", true, 10);
+            changePosition(oP, "top", true, 20);
+        }
+
+
+
+
+        /**
+         * targetEle {HTMLElement} 需要移动的元素
+         * dir {String} top或者left
+         * opera {Boolean} true代表 + false代表 -
+         * step {Number} 步长，即每次改变的数量
+         */
+        function changePosition(targetEle, dir, opera, step) {
+            var nowTop = parseInt(targetEle.style.top);
+            var nowLeft = parseInt(targetEle.style.left);
+            switch (dir) {
+                case "top":
+                    nowTop = opera ? (nowTop + step) : (nowTop - step);
+                    targetEle.style.top = nowTop + "px";
+                    break;
+                case "left":
+                    nowLeft = opera ? (nowLeft + step) : (nowLeft - step);
+                    targetEle.style.left = nowLeft + "px";
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

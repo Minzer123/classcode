@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM操作元素行内样式</title>
+    <style>
+        #speDiv {
+            width: 300px;
+            height: 100px;
+            background: #000;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        #block {
+            width: 100px;
+            height: 100px;
+            background: #26f;
+            position: relative;
+        }
+
+        table {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="speDiv">Hello World</div>
+    <div id="block" style="top:10px;left:10px;"></div>
+
+    <table>
+        <tr>
+            <td></td>
+            <td><button id="moveTop">上</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><button id="moveLeft">左</button></td>
+            <td></td>
+            <td><button id="moveRight">右</button></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="moveBottom">下</button></td>
+            <td></td>
+        </tr>
+    </table>
+
+
+
+
+    <script>
+        // js操作元素的行内样式
+
+        var speDiv = document.getElementById("speDiv");
+
+        console.log(speDiv.style);
+        // 修改或者添加.style对象上的样式，实际是修改或添加的行内样式
+        // 所以优先级会比较高，如果和内联或者外链样式重复的话，则会原样式被覆盖
+        // css里 font-weight background-color
+        speDiv.style.fontWeight = "bold";
+        speDiv.style.backgroundColor = "#f40";
+
+
+        var oBlock = document.getElementById("block");
+        var btnTop = document.getElementById("moveTop");
+        var btnLeft = document.getElementById("moveLeft");
+        var btnRight = document.getElementById("moveRight");
+        var btnBottom = document.getElementById("moveBottom");
+
+        // 只用两个位置属性  top 和 left
+        // btnTop  top-
+        // btnBottom top+
+        // btnLeft left-
+        // btnRight left+
+        btnTop.onclick = function () {
+            // var topNum = parseInt(oBlock.style.top);
+            // topNum -= 4;
+            // oBlock.style.top = topNum + "px";
+            changePosition(oBlock,"top",false,100);
+        }
+        btnBottom.onclick = function () {
+            // var bottomNum = parseInt(oBlock.style.top);
+            // bottomNum += 4;
+            // oBlock.style.top = bottomNum + "px";
+            changePosition(oBlock,"top",true,100);
+        }
+        btnLeft.onclick = function () {
+            // var leftNum = parseInt(oBlock.style.left);
+            // leftNum -= 4;
+            // oBlock.style.left = leftNum + "px";
+            changePosition(oBlock,"left",false,100);
+        }
+        btnRight.onclick = function () {
+            // var rightNum = parseInt(oBlock.style.left);
+            // rightNum += 4;
+            // oBlock.style.left = rightNum + "px";
+            changePosition(oBlock,"left",true,100);
+        }
+
+        // 封装函数changePosition来避免重复写一些逻辑代码
+        // 参数
+        /**
+         * targetEle {HTMLElement} 需要移动的元素
+         * dir       {String}      top或者left
+         * opera     {Boolean}     true代表 +  false代表 -  
+         * step      {Number}      步长，即每次改变的数量
+         */
+        function changePosition(targetEle,dir,opera,step){
+            var nowTop = parseInt(targetEle.style.top);
+            var nowLeft = parseInt(targetEle.style.left);
+            switch (dir){
+                case "top":
+                    // if(opera){
+                    //     nowTop+=step;
+                    // }else{
+                    //     nowTop-=step;
+                    // }
+                    nowTop = opera ? (nowTop+step) : (nowTop-step); 
+                    targetEle.style.top = nowTop + "px";
+                    break;
+                case "left":
+                    // if(opera){
+                    //     nowLeft+=step;
+                    // }else{
+                    //     nowLeft-=step;
+                    // }
+                    nowLeft = opera ? (nowLeft+step) : (nowLeft-step);
+                    targetEle.style.left = nowLeft + "px";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

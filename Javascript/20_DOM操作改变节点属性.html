@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM操作节点属性</title>
+    <style>
+        .hello{
+            font-size: 30px;
+        }
+        .world{
+            font-weight: bold;
+        }
+        .newAdd{
+            font-size: 40px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./phone/1000/honor.jpg" alt="" id="changeImg">
+    <a href="https://www.baidu.com" id="speA">跳转到百度</a>
+    <button id="changeA">改变a标签</button>
+    <input type="text" value="默认值" id="textBlock">
+    <br><hr><br>
+    <p class="hello world">Hello World</p>
+    <button id="changeP">改变p标签样式</button>
+    <button id="removeStyle">去掉newAdd样式</button>
+
+    <div id="speDiv" abc="123">这是一个有自定义属性的div</div>
+
+    <script>
+        var oImg = document.querySelector("#changeImg");
+
+        // 添加点击事件
+        oImg.onclick = function () {
+            var idx = parseInt(Math.random() * (11 - 1 + 1)) + 1;
+            oImg.src = "./imgs/" + idx + ".jpg";
+        }
+
+        var oA = document.getElementById("speA");
+        var oBtn = document.getElementById("changeA");
+
+        oBtn.onclick = function(){
+            oA.href = "https://www.google.com/";
+            // 改变一个标签里的文本有两种方法  innerHTML   innerText
+            oA.innerText = "跳转到Google";
+        }
+
+        var oInput = document.querySelector("#textBlock");
+
+        oInput.onchange = function(){
+            console.log(oInput.value);
+        }
+
+        var oP = document.querySelector(".hello");
+        console.log(oP.className);
+        console.log(oP.classList[0]);
+        console.log(oP.classList[1]);
+
+        var changePBtn = document.querySelector("#changeP");
+        var removeNewAdd = document.querySelector("#removeStyle");
+        changePBtn.onclick = function(){
+            // 通过className添加
+            // oP.className += " newAdd";
+            // 通过classList添加
+            oP.classList.add("newAdd");
+            console.dir(oP.classList);
+        }
+        removeNewAdd.onclick = function(){
+            // 先检测 p 标签上是否有 newAdd 类名  ，如果有再删掉，没有不做处理
+            if(oP.classList.contains("newAdd")){
+                oP.classList.remove("newAdd");
+            }
+        }
+
+        var speDiv = document.querySelector("#speDiv");
+        // console.log(speDiv.abc);// undefined
+
+        var abcAttr = speDiv.getAttribute("abc");
+        console.log(abcAttr);
+        speDiv.setAttribute("abc","456");
+        console.log(speDiv.getAttribute("abc"));
+
+    </script>
+</body>
+
+</html>

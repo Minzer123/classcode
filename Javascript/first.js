@@ -75,5 +75,25 @@ if(isNaN(userInput1) === false){
 
 
 
+var age = parseInt(prompt("请输入你的年龄"));
+var gender = prompt("请输入你的性别");
 
-
+if(!isNaN(age)){
+    if(gender == "男"){
+        if(age >= 22){
+            alert("可以结婚");
+        }else{
+            alert("不可以结婚");
+        }
+    }else if(gender == "女"){
+        if(age >= 20){
+            alert("可以结婚");
+        }else{
+            alert("不可以结婚");
+        }
+    }else{
+        alert("请重新输入性别");
+    }
+}else{
+    alert("请刷新重新输入");
+}

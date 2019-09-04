@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标事件</title>
+    <style>
+        #grandParent {
+            width: 400px;
+            height: 400px;
+            background: red;
+        }
+
+        #parent {
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+
+        #current {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+
+        #son {
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+        #dbc{
+            width: 100px;
+            height: 100px;
+            background: #dbc;
+        }
+        #dbc div{
+            width: 70px;
+            height: 70px;
+            background: #45f;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="grandParent">
+        <div id="parent">
+            <div id="current">
+                <div id="son"></div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+
+    <div id="dbc">
+        <div></div>
+    </div>
+
+
+
+    <script>
+        var grandParent = document.querySelector("#grandParent");
+        var parent = document.querySelector("#parent");
+        var current = document.querySelector("#current");
+        var son = document.querySelector("#son");
+        // DOM 0 级事件添加
+
+        // son.onclick = function(){
+        //     console.log("son被点击了");
+        // }
+        // son.onclick = function () {
+        //     console.log("son被电击了");
+        // }
+
+
+        // DOM 2 级事件添加
+
+        son.addEventListener("click", function (event) {
+            // 事件对象
+            // console.log(event);
+            // event.stopPropagation();
+            console.log("son被点击了");
+        }, true);
+        // son.addEventListener("click", function () {
+        //     console.log("son被电击了");
+        // });
+
+
+        // DOM 0级和 DOM 2级  事件区别：
+        // 1. DOM 2级可以给同一个元素多次添加同一个事件，最终都会被触发；DOM 0级事件给同一个元素多次添加同一个事件后，只会触发最后一次添加的事件
+        // 2. DOM 2级事件可以通过一个参数的配置决定事件的传播顺序是冒泡还是捕获；DOM 0级事件不能
+
+
+
+
+        // addEventListener 第一个参数：事件名称；第二个参数：事件处理函数；第三个参数：是否捕获（true:捕获；false:冒泡;默认是false）
+        current.addEventListener("click", function (event) {
+            // event.stopPropagation();
+            console.log("current被点击了");
+        }, true);
+        parent.addEventListener("click", function (event) {
+            // event.stopPropagation();
+            console.log("parent被点击了");
+        }, false);
+        grandParent.addEventListener("click", function (event) {
+            // event.stopPropagation();
+            console.log("grandParent被点击了");
+        }, false);
+
+        // 事件传播机制：
+        // 冒泡：从触发事件的元素开始依次向上级父元素传播事件的顺序；（由里向外）
+        // 捕获：从最外层有相同事件监听的元素开始触发，依次到真正触发事件的元素；（由外向里）
+
+        // 当事件传播链中既有冒泡又有捕获的时候，事件传播顺序：先捕获，再自身，最后冒泡；捕获按从外到内，冒泡按从内到外
+
+        // son 捕获    current 捕获   parent 冒泡   grandParent 冒泡
+        // 点击current
+        // current parent grandParent
+
+
+        // 鼠标事件
+        var dbc = document.querySelector("#dbc");
+
+        dbc.ondblclick = function(){
+            console.log("dbc被双击");
+        }
+        dbc.onmousedown = function(){
+            console.log("鼠标按下");
+        }
+        dbc.onmouseup = function(){
+            console.log("鼠标抬起");
+        }
+
+        // dbc.onmouseover = function(){
+        //     console.log("over进入");
+        // }
+        // dbc.onmouseout = function(){
+        //     console.log("out离开");
+        // }
+        
+        dbc.onmouseenter = function(){
+            console.log("enter进入"); 
+        }
+        dbc.onmouseleave = function(){
+            console.log("leave离开");
+        }
+
+        dbc.onmousemove = function(e){
+            console.log(e);
+            console.log("鼠标在dbc上移动");
+        }
+
+
+        // 键盘事件
+        document.body.onkeydown = function(ev){
+            console.log(ev);
+            console.log("键盘按下");
+        }
+        document.body.addEventListener("keyup",function(ev){
+            if(ev.keyCode == 32){
+                console.log("键盘抬起");
+            }
+        })
+        document.body.addEventListener("keypress",function(ev){
+            console.log("键盘长期按下");
+        })
+
+    </script>
+</body>
+
+</html>

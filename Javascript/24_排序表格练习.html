@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>排序表格</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #table {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #table #table_header {
+            background: #bdf;
+        }
+
+        #table tr th {
+            width: 200px;
+            position: relative;
+            padding: 5px;
+        }
+
+
+        #table tr th .thName {
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            font-family: "KaiTi";
+            font-size: 18px;
+        }
+
+        #table tr th .thOpera {
+            position: absolute;
+            top: 5px;
+            right: 2px;
+        }
+
+        #table tr th .thOpera .up {
+            width: 20px;
+            height: 20px;
+            background: url("./table/up.png") no-repeat;
+            background-size: cover;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        #table tr th .thOpera .down {
+            width: 20px;
+            height: 20px;
+            background: url("./table/down.png") no-repeat;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        #table tr td {
+            text-align: center;
+        }
+
+        #table tr:nth-child(2n) {
+            background: #eee;
+        }
+
+        #table tr:nth-child(2n-1) {
+            background: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table">
+        <!-- tr>(th>div.thName+(div.thOpera>div.up+div.down))*4 -->
+        <tr id="table_header">
+            <th>
+                <div class="thName">学号</div>
+                <div class="thOpera">
+                    <div class="up" title="学号递增"></div>
+                    <div class="down" title="学号递减"></div>
+                </div>
+            </th>
+            <th>
+                <div class="thName">姓名</div>
+                <div class="thOpera">
+                    <div class="up" title="姓名首字母递增"></div>
+                    <div class="down" title="姓名首字母递减"></div>
+                </div>
+            </th>
+            <th>
+                <div class="thName">年龄</div>
+                <div class="thOpera">
+                    <div class="up" title="年龄递增"></div>
+                    <div class="down" title="年龄递减"></div>
+                </div>
+            </th>
+            <th>
+                <div class="thName">性别</div>
+                <div class="thOpera">
+                    <div class="up" title="男生优先"></div>
+                    <div class="down" title="女生优先"></div>
+                </div>
+            </th>
+        </tr>
+    </table>
+
+
+
+    <script>
+        // 学生信息
+        var stuInfo = [{
+                id: 2019090401,
+                name: "张广贺",
+                age: 21,
+                gender: "男"
+            },
+            {
+                id: 2019090402,
+                name: "李正强",
+                age: 22,
+                gender: "男"
+            },
+            {
+                id: 2019090403,
+                name: "王雨烟",
+                age: 20,
+                gender: "女"
+            },
+            {
+                id: 2019090404,
+                name: "谢琳虹",
+                age: 23,
+                gender: "女"
+            },
+            {
+                id: 2019090405,
+                name: "江博",
+                age: 23,
+                gender: "男"
+            },
+            {
+                id: 2019090406,
+                name: "明甜",
+                age: 22,
+                gender: "女"
+            },
+            {
+                id: 2019090407,
+                name: "沈凯泷",
+                age: 20,
+                gender: "男"
+            },
+            {
+                id: 2019090408,
+                name: "阎璐璐",
+                age: 21,
+                gender: "女"
+            },
+            {
+                id: 2019090409,
+                name: "高天阳",
+                age: 20,
+                gender: "男"
+            },
+            {
+                id: 2019090410,
+                name: "吴宇翔",
+                age: 22,
+                gender: "男"
+            }
+        ];
+        // 页面的 table
+        var mainTable = document.getElementById("table");
+        // 获取所有上按钮们
+        var allUp = document.querySelectorAll(".up");
+        // 获取所有下按钮们
+        var allDown = document.querySelectorAll(".down");
+
+
+
+        // 先初始化学生信息
+        initInfoTable(stuInfo);
+
+
+
+        // 学号递增
+        allUp[0].onclick = function () {
+            realSort(function (a, b) {
+                return a.id - b.id;
+            })
+        }
+        // 学号递减
+        allDown[0].onclick = function () {
+            realSort(function (a, b) {
+                return b.id - a.id;
+            })
+        }
+        // 姓名首字母递增
+        allUp[1].onclick = function () {
+            realSort(function (a, b) {
+                return a.name.localeCompare(b.name);
+            })
+        }
+        // 姓名首字母递减
+        allDown[1].onclick = function () {
+            realSort(function (a, b) {
+                return b.name.localeCompare(a.name);
+            })
+        }
+        // 年龄递增
+        allUp[2].onclick = function () {
+            realSort(function (a, b) {
+                return a.age - b.age;
+            })
+        }
+        // 年龄递减
+        allDown[2].onclick = function () {
+            realSort(function (a, b) {
+                return b.age - a.age;
+            })
+        }
+        // 男生优先
+        allUp[3].onclick = function () {
+            realSort(function (a, b) {
+                return a.gender.localeCompare(b.gender);
+            })
+        }
+        // 女生优先
+        allDown[3].onclick = function () {
+            realSort(function (a, b) {
+                return b.gender.localeCompare(a.gender);
+            })
+        }
+
+
+        // 排序和重新初始化表格数据封装
+        function realSort(callback) {
+            stuInfo.sort(callback);
+            initInfoTable(stuInfo);
+        }
+
+        // 初始化学生信息表
+        function initInfoTable(info) {
+            clearInfoItem();
+            for (var i = 0; i < info.length; i++) {
+                var iTr = document.createElement("tr");
+                iTr.className = "infoItem";
+                for (var k in info[i]) {
+                    var iTd = document.createElement("td");
+                    iTd.innerText = info[i][k];
+                    iTr.appendChild(iTd);
+                }
+                mainTable.appendChild(iTr);
+            }
+        }
+
+
+        // 删除表格中所有学生信息行
+        function clearInfoItem() {
+            var allInfoItem = mainTable.getElementsByClassName("infoItem");
+            // 删之前先检测表格中有没有 学生信息 ，有的话再删除，没有的话不做处理
+            // 第一次初始化学生信息时肯定没有学生信息，所以在initInfoTable里会构建学生信息部分
+            if (allInfoItem.length !== 0) {
+                for (var i = 0; i < allInfoItem.length; i++) {
+                    mainTable.removeChild(allInfoItem[i]);
+                    i--;// 删掉一个tr以后 i 需要自减，否则tr删不净
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -111,7 +111,8 @@
 
     <script>
         // 学生信息
-        var stuInfo = [{
+        var stuInfo = [
+            {
                 id: 2019090401,
                 name: "张广贺",
                 age: 21,
@@ -172,6 +173,7 @@
                 gender: "男"
             }
         ];
+        
         // 页面的 table
         var mainTable = document.getElementById("table");
         // 获取所有上按钮们
@@ -256,7 +258,6 @@
                 mainTable.appendChild(iTr);
             }
         }
-
 
         // 删除表格中所有学生信息行
         function clearInfoItem() {

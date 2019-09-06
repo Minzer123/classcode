@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #parent {
+            width: 500px;
+            height: 200px;
+            background: #000;
+            position: relative;
+        }
+
+        .son {
+            width: 250px;
+            height: 80px;
+            background: #666;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* margin-left: -100px;
+            margin-top: -50px; */
+            transform: translate(-50%, -50%);
+        }
+
+        /* 弹性盒（flexbox）实现元素绝对居中 */
+
+        #parent1 {
+            width: 500px;
+            height: 200px;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .son1 {
+            width: 400px;
+            height: 50px;
+            background: #666;
+        }
+
+
+        #single{
+            width: 400px;
+            height: 300px;
+            background: #45f;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="parent">
+        <div class="son"></div>
+    </div>
+
+    <br>
+    <hr><br>
+
+    <div id="parent1">
+        <div class="son1"></div>
+    </div> -->
+
+
+    <div id="single"></div>
+</body>
+
+</html>

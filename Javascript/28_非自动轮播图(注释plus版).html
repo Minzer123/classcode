@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>非自动轮播图</title>
+    <style>
+        #carousel {
+            width: 864px;
+            height: 540px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #carousel .img-container img {
+            width: 100%;
+        }
+
+        #carousel .navigation {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #carousel .navigation li {
+            width: 20px;
+            height: 5px;
+            background: #333;
+            float: left;
+            margin: 0 5px;
+        }
+
+        #carousel .navigation li.current {
+            background: #ddd;
+        }
+
+
+        #carousel .btn {
+            width: 150px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            /* 因为加了绝对定位，所以 z-index 要调高才能保证在最上层，鼠标才能划的上去 */
+            z-index: 999;
+            cursor: pointer;
+        }
+
+        #carousel .btnLast {
+            left: 0;
+        }
+
+        #carousel .btnLast:hover .btnCoreLast {
+            display: block;
+        }
+
+        #carousel .btnNext {
+            right: 0;
+        }
+
+        #carousel .btnNext:hover .btnCoreNext {
+            display: block;
+        }
+
+        #carousel .btnLast .btnCoreLast,
+        #carousel .btnNext .btnCoreNext {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: relative;
+        }
+
+        #carousel .btnLast .btnCoreLast {
+            /* 背景颜色线性渐变 */
+            /* 从左到右 to right */
+            /* 起始颜色 #000  */
+            /* 结束颜色 transparent */
+            background-image: linear-gradient(to right, #000, transparent);
+        }
+
+        #carousel .btnNext .btnCoreNext {
+            /* 背景颜色线性渐变 */
+            /* 从左到右 to right */
+            /* 起始颜色 transparent */
+            /* 结束颜色 #000 */
+            background-image: linear-gradient(to right, transparent, #000);
+        }
+
+        #carousel .btnLast .btnCoreLast img,
+        #carousel .btnNext .btnCoreNext img {
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <div class="img-container">
+            <img src="./heroes/tu (6).jpg">
+        </div>
+        <ul class="navigation">
+
+        </ul>
+        <div class="btn btnLast">
+            <div class="btnCoreLast">
+                <img src="./arrow/last.png">
+            </div>
+        </div>
+        <div class="btn btnNext">
+            <div class="btnCoreNext">
+                <img src="./arrow/next.png">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 获取 ul
+        var navUl = document.querySelector("#carousel .navigation");
+
+        // 获取上一张按钮
+        var btnLast = document.querySelector("#carousel .btnLast");
+
+        // 获取下一张按钮
+        var btnNext = document.querySelector("#carousel .btnNext");
+
+        // 获取展示图片的 img 标签
+        var imgTag = document.querySelector("#carousel .img-container img");
+
+        // 一共有几张图轮播
+        var pageCount = 5;
+
+        // 因为图片是 1~193 编号的，所以需要指定轮播图引用图片的开始序号和结束序号
+        // 开始序号（下限）
+        var imgIndexMin = 6;
+        // 结束序号（上限）
+        var imgIndexMax = imgIndexMin + pageCount - 1;
+
+        // 要引用图片的真正序号，初始的时候是开始序号
+        // 会在点击上/下一张按钮后 以及 鼠标划上具体的导航条后发生改变
+        var realIndex = imgIndexMin;
+
+        // 创建导航条，一定要最上边调用，保证下面获取导航条时能获取到
+        createNavBar(pageCount);
+
+        // 获取所有导航条，此步骤一定在创建导航条之后
+        var lis = document.querySelectorAll("#carousel .navigation li");
+
+        // li [0-4]
+        // img [6-10]
+        // 从上面的举例分析出导航条的索引和图片索引 realIndex 的关系是: 
+        // 导航条索引 = realIndex - imgIndexMin
+
+        // 重复代码封装，没具体实际功能，只是为了偷懒，把重复代码封了个装
+        function repeatCode() {
+            imgTag.src = "./heroes/tu (" + realIndex + ").jpg";
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].className = "";
+            }
+            lis[realIndex - imgIndexMin].className = "current";
+        }
+
+        btnLast.onclick = function () {
+            // 上一张时 realIndex--
+            realIndex--;
+            // if后验证：在 realIndex 做完变化后验证是否已经小于第一张图片序号，是的话，手动变成最后一张图片的序号
+            if (realIndex < imgIndexMin) {
+                realIndex = imgIndexMax;
+            }
+            repeatCode();
+        }
+        btnNext.onclick = function () {
+            // 下一张时 realIndex--
+            realIndex++;
+            // if后验证：在 realIndex 做完变化后验证是否已经大于最后一张图片序号，是的话，手动变成第一张图片的序号
+            if (realIndex > imgIndexMax) {
+                realIndex = imgIndexMin;
+            }
+            repeatCode();
+        }
+
+
+        // 批量给导航条添加鼠标划上去的事件
+        for (var j = 0; j < lis.length; j++) {
+            (function (m) {
+                lis[j].onmouseenter = function () {
+                    // 排他，先把所有的导航条去掉 current 类名
+                    for (var i = 0; i < lis.length; i++) {
+                        lis[i].className = "";
+                    }
+                    // 再只给鼠标划上来的导航条加  current 类名
+                    lis[m].className = "current";
+                    // 同样要显示对应的图片    
+                    // 导航条的索引 m 和图片索引 realIndex 的关系是 realIndex = m + imgIndexMin
+                    realIndex = m + imgIndexMin;
+                    imgTag.src = "./heroes/tu (" + realIndex + ").jpg";
+                }
+            })(j);
+        }
+
+        // 创建导航条 并让第一个加 current 类名
+        function createNavBar(n) {
+            for (var i = 1; i <= n; i++) {
+                var navLi = document.createElement("li");
+                // 默认第一个 li 添加 current 类名
+                if (i == 1) {
+                    navLi.className = "current";
+                }
+                navUl.appendChild(navLi);
+            }
+        }
+    </script>
+</body>
+
+</html>

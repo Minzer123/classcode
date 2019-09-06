@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对应模型和排他模型</title>
+    <style>
+        ul {
+            overflow: hidden;
+            list-style: none;
+        }
+
+        ul li {
+            width: 50px;
+            height: 50px;
+            background: #45f;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 20px;
+            float: left;
+            margin: 10px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .secondRow li {
+            background: #4f5;
+        }
+
+        .thirdRow li {
+            background: #fa4;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>对应模型案例</h1>
+    <ul class="firstRow">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <ul class="secondRow">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <br>
+    <hr>
+    <br>
+    <h1>排他模型案例</h1>
+    <ul class="thirdRow">
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
+    <script>
+        var firstRowLis = document.querySelectorAll(".firstRow li");
+        var secondRowLis = document.querySelectorAll(".secondRow li");
+
+        // 鼠标放到第二行的 li时，第一行对应位置的 li改变颜色
+        for (var i = 0; i < secondRowLis.length; i++) {
+            (function (n) {
+                secondRowLis[n].onmouseenter = function () {
+                    firstRowLis[n].style.backgroundColor = "#f45";
+                }
+                secondRowLis[n].onmouseleave = function () {
+                    firstRowLis[n].style.backgroundColor = "#45f";
+                }
+            })(i)
+        }
+
+
+        var thirdRowLis = document.querySelectorAll(".thirdRow li");
+
+        // 1. 鼠标放到某一个上面时，先把所有的回归原来颜色
+        // 2. 再把鼠标放上去的元素改变颜色
+
+        for (var i = 0; i < thirdRowLis.length; i++) {
+            thirdRowLis[i].onmouseenter = function () {
+                for (var j = 0; j < thirdRowLis.length; j++) {
+                    thirdRowLis[j].style.backgroundColor = "#fa4";
+                }
+                this.style.backgroundColor = "#4af";
+            }
+            thirdRowLis[i].onmouseleave = function () {
+                this.style.backgroundColor = "#fa4";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简易轮播图</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #carousel {
+            width: 720px;
+            height: 450px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #carousel .container img {
+            width: 100%;
+            display: none;
+        }
+
+        #carousel .container img.current {
+            display: block;
+        }
+
+        #carousel .navigation {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -90px;
+        }
+
+        #carousel .navigation li {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: purple;
+            float: left;
+            margin: 0 8px;
+            cursor: pointer;
+        }
+
+        #carousel .navigation li.current {
+            background: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel">
+        <div class="container">
+            <img src="./heroes/tu (1).jpg" alt="" class="current">
+            <img src="./heroes/tu (2).jpg" alt="">
+            <img src="./heroes/tu (3).jpg" alt="">
+            <img src="./heroes/tu (4).jpg" alt="">
+            <img src="./heroes/tu (5).jpg" alt="">
+        </div>
+        <ul class="navigation">
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+
+    <script>
+        var imgs = document.querySelectorAll("#carousel .container img");
+        var lis = document.querySelectorAll("#carousel .navigation li");
+
+        // 给每一个小圆点添加鼠标划上事件
+        for (var i = 0; i < lis.length; i++) {
+            (function (n) {
+                lis[n].onmouseenter = function () {
+                    // 把所有图片不显示，把所有小圆点回归原来颜色
+                    for (var j = 0; j < imgs.length; j++) {
+                        imgs[j].className = "";
+                        lis[j].className = "";
+                    }
+                    // 鼠标放上去的小圆点对应的图片，显示
+                    imgs[n].className = "current";
+                    // 鼠标放上去的小圆点，变金色
+                    this.className = "current";
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>
